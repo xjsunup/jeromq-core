@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.kafang.jeromq.core.pmodel";
+option java_outer_classname = "SideTest";
+
+/*
+ 买卖方向
+*/
+enum Side{
+    //允许使用别名，可以兼容老版本字段命名
+//    option allow_alias = true;
+    UNKNOWN  = 0;
+    BUY = 1;
+    SELL = 2;
+}

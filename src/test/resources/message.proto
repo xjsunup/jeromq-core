@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto;
+
+option java_package = "com.kafang.jeromq.core.model";
+option java_outer_classname = "MessageTest";
+
+message Message{
+    int32 id = 1;
+    string body = 2;
+    repeated User user = 3;
+}
+
+message User{
+    string name = 1;
+}

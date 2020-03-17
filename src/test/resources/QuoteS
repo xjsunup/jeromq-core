@@ -1,0 +1,69 @@
+syntax = "proto3";
+//用于区分包目录，防止重名报错
+package kafang.market;
+
+option java_package = "com.kafang.jeromq.core.pmodel";
+option java_outer_classname = "QuoteSTest";
+
+import "Side";
+
+/*
+ 数据说明：行情快照-现货。
+ 品种： 股票，场内基金。
+ 交易所： 上海，深圳。
+*/
+message QuoteS {
+    //本地时间
+    fixed64 localTime = 1;
+    //交易所代码
+    int32 code = 2;
+    //日期
+    int32 date = 3;
+    fixed64 time = 4;
+    // 状态 todo 后期可能改为enum
+    int32 status = 5;
+    //成交标志
+    string tradeFlag = 6;
+    //最后一笔交易方向
+    Side lastTrdSide = 7;
+    //当日累计成交数量(元)
+    int64 volume = 8;
+    //当日累计成交额(元)
+    int64 amount = 9;
+    //成交量
+    int64 lastVlm = 10;
+    //成交额(元)
+    int64 lastAmt = 11;
+    //成交笔数(当日累计)
+    int32 numTrd = 12;
+    //开盘价
+    float open = 13;
+    //最高价
+    float high = 14;
+    //最低价
+    float low = 15;
+    //最新成交价
+    float lastPx = 16;
+    //前收盘价
+    float preClose = 17;
+    //10档买价
+    repeated float bid = 18;
+    //10档卖价
+    repeated float ask = 19;
+    //10档买量
+    repeated int64 bidSize = 20;
+    //10档卖量
+    repeated int64 askSize = 21;
+    //委托总买量
+    int64 bidSizeAll = 22;
+    //委托总卖量
+    int64 askSizeAll = 23;
+    //加权平均委托买价
+    float bidVWap = 24;
+    //加权平均委托卖价
+    float askVWap = 25;
+    //涨停价
+    float limitHigh = 26;
+    //跌停价
+    float limitLow = 27;
+}
